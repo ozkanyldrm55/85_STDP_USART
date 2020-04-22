@@ -14,7 +14,7 @@ void GPIO_Config() {
 
 	GPIO_PinAFConfig(GPIOA,GPIO_PinSource2,GPIO_AF_USART2); // PA2 Tx Pini olarak ayarladik.
 
-	GPIO_InitStruc.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStruc.GPIO_Mode = GPIO_Mode_AF; // haberlesme protokolu ile kullanilacagi icin AF olarak belirledik.
 	GPIO_InitStruc.GPIO_Pin = GPIO_Pin_2;
 	GPIO_InitStruc.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStruc.GPIO_PuPd = GPIO_PuPd_NOPULL;
@@ -30,7 +30,7 @@ void USART_Config() {
 
 	USART_InitStruct.USART_BaudRate = 9600;			 // saniye kaç veri gonderilecegini ayarladik.
 	USART_InitStruct.USART_HardwareFlowControl = USART_HardwareFlowControl_None; // detayli arastirma yap.
-	USART_InitStruct.USART_Mode = USART_Mode_Tx; // mesaj gonderilecegi icin Tx yapildi.
+	USART_InitStruct.USART_Mode = USART_Mode_Tx; 		 // mesaj gonderilecegi icin Tx yapildi.
 	USART_InitStruct.USART_Parity = USART_Parity_No;
 	USART_InitStruct.USART_StopBits = USART_StopBits_1;	 // 1 bilgisi geldiginde haberlesme duracak.
 	USART_InitStruct.USART_WordLength = USART_WordLength_8b; // gonderilecek veri 8 bit
@@ -59,7 +59,7 @@ void EVAL_AUDIO_TransferComplete_CallBack(uint32_t pBuffer, uint32_t Size){
   /* TODO, implement your code here */
   return;
 }
-
+ 
 /*
  * Callback used by stm324xg_eval_audio_codec.c.
  * Refer to stm324xg_eval_audio_codec.h for more info.
